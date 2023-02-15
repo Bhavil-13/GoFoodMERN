@@ -1,0 +1,1 @@
+mongoimport --uri mongodb+srv://GoFood:ssg2bhavil@cluster0.5o8fwcq.mongodb.net/gofoodmern --collection food_items --jsonArray --file "C:\Users\bhavi\OneDrive\Desktop\GoFood\mernapp\foodData2.json"
