@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const mongoULI =
-  "mongodb+srv://GoFood:<PASSWORD>@cluster0.5o8fwcq.mongodb.net/gofoodmern?retryWrites=true&w=majority";
+  "mongodb+srv://gofood:ssg2bhavil@cluster0.e9zbh.mongodb.net/gofoodmern?retryWrites=true&w=majority&appName=Cluster0";
 
 const mongoDB = async () => {
   await mongoose.connect(

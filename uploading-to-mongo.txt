@@ -1,0 +1,4 @@
+mongosh "mongodb+srv://cluster0.e9zbh.mongodb.net/" --apiVersion 1 --username gofood
+exit
+mongoimport --uri mongodb+srv://gofood:ssg2bhavil@cluster0.e9zbh.mongodb.net/gofoodmern --collection food_items --jsonArray --file "/home/bhavil/Desktop/GoFoodMERN/foodData2.json"
+mongoimport --uri mongodb+srv://gofood:ssg2bhavil@cluster0.e9zbh.mongodb.net/gofoodmern --collection foodCategory --jsonArray --file "/home/bhavil/Desktop/GoFoodMERN/foodCategory.json"
