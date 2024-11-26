@@ -94,7 +94,7 @@ export default function Signup() {
               name="geolocation"
               value={credentials.geolocation}
               onChange={onChange}
-              id="exampleInputPassword1"
+              // id="exampleInputPassword1"
             />
           </div>
           <button type="submit" className="m-3 btn btn-success">

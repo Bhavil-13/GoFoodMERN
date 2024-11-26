@@ -1,0 +1,9 @@
+docker network create gofood-network
+
+docker build -t gofood-frontend .
+docker run --name gofood-frontend-container --network=gofood-network -d -p 3000:3000 gofood-frontend
+
+docker run --network=gofood-network --name mongodb -d -p 27017:27017 -v ~/opt/data:/data/db mongo:latest
+
+docker build -t gofood-backend .
+docker run --name gofood-backend-container --network=gofood-network -d -p 5000:5000 gofood-backend

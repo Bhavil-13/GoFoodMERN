@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  gofood-frontend-comp:
+    build:
+      context: ./  # Path to the main folder where your frontend files are located
+    container_name: gofood-frontend-comp
+    ports:
+      - "3000:3000"
+    networks:
+      - gofood-network
+
+  gofood-backend-comp:
+    build:
+      context: ./backend  # Path to your backend directory
+    container_name: gofood-backend-comp
+    ports:
+      - "5000:5000"
+    networks:
+      - gofood-network
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/gofoodmern
+      - PORT=5000
+      # - JWT_SECRET='socialMediaIsReallyCool'
+    # environment:
+    #   - MONGO_URI=mongodb+srv://gofood:ssg2bhavil@cluster0.e9zbh.mongodb.net/gofoodmern?retryWrites=false&w=majority  # Replace with your MongoDB Atlas URI
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/db:/data/db:rw
+      - ./data/configdb:/data/configdb:rw
+      - ./init:/docker-entrypoint-initdb.d
+    command: bash /docker-entrypoint-initdb.d/seed.sh
+    # volumes:
+    #   - mongo_data:/data/db
+    networks:
+      - gofood-network
+
+networks:
+  gofood-network:
+    driver: bridge
+
+volumes:
+  mongo_data:
+    driver: local
